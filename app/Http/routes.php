@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -21,3 +21,8 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::resource('backend', 'AdminController');
+Route::get('backend', 'AdminController@index');
+Route::get('backend/create', 'AdminController@create');
+Route::post('backend/create', 'AdminController@create');
